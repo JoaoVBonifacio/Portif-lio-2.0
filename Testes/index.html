@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Image with HTML and CSS</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
-  <body>
-    <div class="image-container">
-      <div class="image-content">
-        <h1>Monalisa Ashley</h1>
-        <p>Creative Director and UI/UX Designer</p>
-        <p>Sydney, Australia</p>
-      </div>
-    </div>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca de Div</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="div1" class="conteudo">
+    <h2>Conteúdo 1</h2>
+    <p>Este é o conteúdo da Div 1.</p>
+</div>
+
+<div id="div2" class="conteudo hidden">
+    <h2>Conteúdo 2</h2>
+    <p>Este é o conteúdo da Div 2.</p>
+</div>
+
+<button onclick="trocarDiv()">Trocar Div</button>
+
+<script src="script.js"></script>
+
+</body>
 </html>

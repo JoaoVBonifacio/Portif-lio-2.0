@@ -4,6 +4,7 @@
 
 body {
     background-color: var(--bg-100);
+    transition: background-color 0.5s;
 }
 
 :root {
@@ -18,19 +19,23 @@ body {
     --bg-100:#FFFFFF;
     --bg-200:#e3e3e3;
     --bg-300:#cccccc;
-
-    /* Dark Mode */
-    /* --primary-100-dark:#0085ff;
-    --primary-200-dark:#69b4ff;
-    --primary-300-dark:#e0ffff;
-    --accent-100-dark:#006fff;
-    --accent-200-dark:#e1ffff;
-    --text-100-dark:#FFFFFF;
-    --text-200-dark:#9e9e9e;
-    --bg-100-dark:#1E1E1E;
-    --bg-200-dark:#2d2d2d;
-    --bg-300-dark:#454545; */
+    --prink:#fff4f4;
+    --catkrill: #eef5fa;
       
+}
+
+:root .dark-theme {
+    /* Dark Mode */
+    --primary-100:#0085ff;
+    --primary-200:#69b4ff;
+    --primary-300:#e0ffff;
+    --accent-100:#006fff;
+    --accent-200:#e1ffff;
+    --text-100:#FFFFFF;
+    --text-200:#9e9e9e;
+    --bg-100:#1E1E1E;
+    --bg-200:#2d2d2d;
+    --bg-300:#454545;
 }
 
 /* Button Area */
@@ -187,6 +192,7 @@ body {
     gap: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    color: var(--text-100);
 }
 
 .personal-info-contact-item:not(:first-child){
@@ -276,6 +282,7 @@ body {
 
 .section-title-wrap {
     margin-bottom: 30px;
+    color: var(--text-100);
 }
 
 .section-title-wrap .section-title {
@@ -292,11 +299,21 @@ body {
 }
 
 .bg-prink {
-    background-color: #f9f9f9;
+    background-color: var(--prink);
 }
 
 .bg-catkrill {
-    background-color: #eef5fa;
+    background-color: var(--catkrill);
+}
+
+.dark-theme .bg-prink{
+    border: 1px solid #353535;
+    background-color: transparent;
+}
+
+.dark-theme .bg-catkrill {
+    border: 1px solid #353535;
+    background-color: transparent;
 }
 
 .pb-25 {
@@ -309,6 +326,17 @@ body {
     text-align: center !important;
 }
 
+.page-title-wrap {
+    color: var(--text-100);
+}
+
+.text{
+    color: var(--text-100);
+}
+
+.footer-copyright {
+    color: var(--text-100)
+}
 
 /* Guide Area */
 
@@ -357,6 +385,11 @@ nav {
     line-height: 1;
     text-decoration: none;
     color: var(--text-100);
+    padding: 10px 10px 10px 10px;
+}
+
+.main-menu ul li a:hover {
+    color: var(--bg-100);
 }
 
 .main-menu ul li:not(:last-child) {
