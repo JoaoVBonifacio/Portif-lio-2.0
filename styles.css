@@ -588,6 +588,18 @@ nav {
 
 /* Portifolio Area */
 
+/* .portifolio{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-top: 3rem;
+}
+
+.portifolio .portifolio-item {
+  position: relative;
+  border-radius: 15px;
+} */
+
 .card-wrap-portifolio{
   width: 320px;
   /* background: #fff; */
@@ -670,6 +682,18 @@ nav {
 
 @media (max-width: 767px) {
 
+  /* Button Area */
+  .theme-btn {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px; 
+}
+
+  .controls .control {
+  width: 50px;
+  height: 50px;
+}
+
   /* Page Area */
   .section-title-wrap:is(.pr-60){
     padding-right: 10px;
@@ -686,14 +710,14 @@ nav {
 
   .row {
     display: flex;
-    flex-wrap:flex;
+    flex-wrap: flex;
   }
 
   .page-content-wrap{
     width: 100%;
     margin-left: 0;
-    margin-bottom: 30px;
-    padding: 40px 20px;
+    /* margin-bottom: 30px; */
+    /* padding: 40px 20px; */
   }
 
   .page-title-wrap p{
@@ -708,6 +732,11 @@ nav {
 
   .page-title{
     font-size: 32px;
+    padding-top: 10px;
+  }
+
+  .page-title-wrap{
+    text-align: center;
   }
 
   .what-do-item {
@@ -722,7 +751,7 @@ nav {
 
   /* Page Area - Resume Area */
   .section-title {
-    font-size: 32px;
+    font-size: 35px;
     text-align: center;
   }
 
@@ -732,7 +761,8 @@ nav {
   }
 
   .knowledeges-item-wrap {
-    justify-content: center;
+    /* justify-content: center; */
+    text-align: center;
   }
 
   .section-wrapper:is(.pb-60){
@@ -763,19 +793,20 @@ nav {
 
   /* Guide Area */
   .controls {
-    top: auto;
-    bottom: -1px;
-    flex-direction: row;
+    /* top: auto; */
+    /* bottom: -1px; */
+    /* flex-direction: row; */
     justify-content: center;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    background-color: var(--bg-100);
+    left: 80%;
+    transform: translateY(-50%);
+    /* width: 60%; */
+    /* background-color: var(--bg-100); */
     border-radius: 30px;
+    height: auto;
   }
-  .controls .control {
+  /* .controls .control {
     margin: 1rem 0.3rem;
-  }
+  } */
 }
 
 @media only screen and (min-width:576px) and (max-width: 767px) {
@@ -790,9 +821,60 @@ nav {
     margin-top: 0;
   }
 
-  .header-area{
-    margin-bottom: 50px;
+  .personal-info-area {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 30px;
+    top: -40px;
   }
+
+  .header-area{
+    margin-bottom: -20px;
+  }
+
+  .section-title-wrap .section-title {
+    font-size: 24px;
+  }
+
+  .row>* {
+    width: 100%;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: flex;
+  }
+
+  .page-area {
+   margin: 0;
+  }
+
+  .card-wrap-portifolio{
+    width: auto;
+  }
+
+
+  /* Guide Area */
+  .controls {
+    /* top: auto; */
+    /* bottom: -1px; */
+    /* flex-direction: row; */
+    justify-content: center;
+    /* left: 88%; */
+    transform: translateY(-50%);
+    /* width: 60%; */
+    /* background-color: var(--bg-100); */
+    border-radius: 30px;
+    height: auto;
+  }
+
+  /* .controls .control {
+    width: 70px;
+    height: 70px;
+  } */
+
 }
 
 @media (min-width: 576px){
@@ -800,3 +882,30 @@ nav {
     max-width: 540px;
   } */
 }
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px){
+  .personal-info-area{
+    width: 100%;
+    margin-left: 0;
+    padding: 30px 15px;
+    top: -40px;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .col-xl-3 {
+    flex: 0 0 auto;
+    width: 30%;
+}
+
+.col-xl-9 {
+  flex: 0 0 auto;
+  width: 60%;
+}
+
+.page-area {
+  margin-left: 0px;
+  /* margin-right: -140px;
+} 
+
+}*/
