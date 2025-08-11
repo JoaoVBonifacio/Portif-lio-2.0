@@ -1,451 +1,336 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Bonifácio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>João Bonifácio - Desenvolvedor Full Stack Python</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/icone.jpg">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#F59E0B',
+                        backgroundLight: '#F8F9FA',
+                        backgroundDark: '#111827',
+                        cardLight: '#FFFFFF',
+                        cardDark: '#1F2937',
+                        textLight: '#374151',
+                        textDark: '#D1D5DB'
+                    },
+                }
+            }
+        }
+    </script>
+    
 </head>
-<body class="main-content">
+<body class="antialiased bg-backgroundLight text-textLight dark:bg-backgroundDark dark:text-textDark transition-colors duration-300">
 
-    <div class="header-area"></div>
-    <div class="container z-index-3">
-        <div class="row">
-            
-            <!-- Persona Area -->
-            <div class="col-xxl-1 col-xl-3">
-                <div class="personal-info-area">
-                    <div class="personal-info-wrap">
-                        <div class="personal-info-img">
-                            <img src="img/perfil.jpg" width="240" height="240" alt="logo">
-                        </div>
-                        <h4 class="personal-info-name">
-                            <a href="#">João Bonifácio</a>
-                        </h4>
-                        <span class="personal-info-bio">Desenvolvedor Full Stack</span>
-                        <ul class="personal-info-social-link">
-                            <li>
-                                <a href="https://www.linkedin.com/in/joaovbonifacio/" target="_blank" style="color:#144679;">   
-                                    <i class="fa-brands fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/JoaoVBonifacio" target="_blank" style="color:#000000">
-                                    <i class="fa-brands fa-github"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="personal-info-contact">
-                            <div class="personal-info-contact-item">
-                                <div class="icon" style="font-size: 22px;">
-                                    <i class="fa-solid fa-mobile"></i>
-                                </div>
-                                <div class="text">
-                                    <span>Telefone</span>
-                                    <p>+55 (21) 991383322</p>
-                                </div>
-                            </div>
-                            <div class="personal-info-contact-item">
-                                <div class="icon" style="font-size: 22px;">
-                                    <i class="fa-solid fa-inbox"></i>
-                                </div>
-                                <div class="text">
-                                    <span>Email</span>
-                                    <p style="text-transform: lowercase;">jboni2014@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="personal-info-contact-item">
-                                <div class="icon" style="font-size: 22px;">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div class="text">
-                                    <span>Localização</span>
-                                    <p>Rio de Janeiro, Vaz Lobo</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <a class="btn-1" href="/curriculo/João Bonifácio Curriculo.pdf" target="_blank">
-                                <span class="icon">
-                                    <i class="fa-solid fa-circle-down"></i>
-                                </span>
-                                Dowload CV
-                            </a>
-                        </div>
+    <!-- Navbar -->
+    <header class="bg-white/80 dark:bg-cardDark/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-primary dark:text-primary">João Bonifácio</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#sobre" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Sobre Mim</a>
+                        <a href="#experiencia" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Experiência</a>
+                        <a href="#projetos" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projetos</a>
+                        <a href="#habilidades" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Habilidades</a>
+                        <a href="#contato" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contato</a>
                     </div>
                 </div>
+                <div class="flex items-center md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
+                        <svg id="moon-icon-mobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg id="sun-icon-mobile" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden md:block">
+                    <button id="theme-toggle-desktop" class="p-2 rounded-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
+                        <svg id="moon-icon-desktop" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg id="sun-icon-desktop" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-
-            <!-- Page Area -->
-            <div class="col-xxl-11 col-xl-9">
-                <main class="page-area">
-                    <section class="containers about active" id="about" style="border-radius: 20px;">
-                        <div class="page-content-wrap">
-                        <div class="section-wrapper pl-60 pr-60 pt-60">
-                            <div class="page-title-wrap">
-                                <h2 class="page-title">
-                                    Sobre Mim
-                                </h2>
-                                <p>
-                                    Experiência como técnico em informática, com montagem e manutenção de computadores e servidores. Supervisor temporário, qualificado para
-                                    gerenciar pessoas, projetos, administrar linhas de produção para locação de computadores, criação e configuração de servidor PXE.
-                                </p>
-                                <p>
-                                    Especialização em desenvolvedor de jogos digitais, conhecimento em linguagens de programação C, e C# para Unity3D, e
-                                    desenvolvimento web com HTML, CSS, e JS. Rápido, amante de desafios, e em busca da evoluçãoseja pessoal, intelectual e profissional.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="section-wrapper pl-60 pr-60">
-                            <div class="section-title-wrap">
-                                <h3 class="section-title">O que eu faço !</h3>
-                            </div>
-                            <div class="what-do-wrap">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="what-do-item bg-prink">
-                                            <div class="icon" style="margin:0 auto">
-                                                <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/source_code-512.png" alt="Full_Stack_Developers" style="height: 80px; width: 80px;">
-                                            </div>
-                                            <div class="text">
-                                                <h4>Desenvolvedor Full Stack</h4>
-                                                <p>Profissional versátil e multifacetado que domina tanto o desenvolvimento front-end quanto o back-end de aplicações web.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="what-do-item bg-catkrill">
-                                            <div class="icon" style="margin:0 auto">
-                                                <img src="https://cdn0.iconfinder.com/data/icons/game-asset-1/24/gamepad-3-512.png" width="80" height="80" alt="Game_Developer">
-                                            </div>
-                                            <div class="text">
-                                                <h4 class="title">Programador de Jogos</h4>
-                                                <p>Especialista em desenvolvimento de software que se concentra na criação de jogos eletrônicos.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="what-do-item bg-catkrill">
-                                            <div class="icon" style="margin:0 auto">
-                                                <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-04-512.png" width="80" height="80" alt="IT_Computer">
-                                            </div>
-                                            <div class="text">
-                                                <h4 class="title">Técnico de Informática</h4>
-                                                <p>Fornecer suporte técnico e solucionar problemas relacionados a computadores, redes e sistemas de informação.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="what-do-item bg-prink">
-                                            <div class="icon" style="margin:0 auto">
-                                                <img src="https://cdn2.iconfinder.com/data/icons/flat-glyph-seo-1/128/_work-_working_computer_user_freelancer_internet_user_office_work_online_employee-512.png" width="80" height="80" alt="Progress">
-                                            </div>
-                                            <div class="text">
-                                                <h4 class="title">Freelancer</h4>
-                                                <p>Freelancer na área da Informática e iniciando na área de Desenvolvimento Full Stack.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-copyright text-center pt-25 pb-25">
-                            <span>
-                                © 2024 Copyright Reserved by João Bonifácio
-                            </span>
-                        </div>
-                        </div>
-                    </section>
-
-                    <section class="containers" id="resume" style="border-radius: 20px;">
-                    <div class="page-content-wrap">
-                        <div class="section-wrapper pl-60 pr-60 pt-60">
-                            <div class="page-title-wrap">
-                                <h2 class="page-title">
-                                    Resume
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="section-wrapper pl-60 pr-60">
-                            <div class="row">
-                                <div class="col-6 col-lg-7">
-                                    <div class="resume-title-wrap">
-                                        <h4 class="section-title">
-                                            <lord-icon src="https://cdn.lordicon.com/omiqopzf.json" trigger="loop" delay="1000" style="width:50px;height:50px"></lord-icon>
-                                            Educação
-                                        </h4>
-                                    </div>
-                                    <div class="card-wrap">
-                                        <div class="card-item bg-prink">
-                                            <span class="card-subtitle">02/2016 - 12/2018</span>
-                                            <h6 class="card-title">
-                                                Colégio Estadual José Leite Lopes
-                                                <span> - Ensino Médio Técnico</span>
-                                            </h6>
-                                        </div>
-                                        <div class="card-item bg-catkrill">
-                                            <span class="card-subtitle">08/2022</span>
-                                            <h6 class="card-title">
-                                                Universidade Veiga de Almeida
-                                                <span> - Ensino Superior<i>(Incompleto)</i></span>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-5">
-                                    <div class="resume-title-wrap">
-                                        <h4 class="section-title">
-                                            <lord-icon src="https://cdn.lordicon.com/lxrsqlrx.json" trigger="loop" delay="1000"style="width:50px;height:50px;"></lord-icon>
-                                            Experiência
-                                        </h4>
-                                    </div>
-                                    <div class="card-item bg-catkrill">
-                                        <span class="card-subtitle">02/2020 - 04/2021</span>
-                                        <h6 class="card-title">
-                                            Jovem Aprendiz
-                                            <span> - Gaia Service Tech</span>
-                                        </h6>
-                                    </div>
-                                    <div class="card-item bg-prink">
-                                        <span class="card-subtitle">05/2022 - 12/2023</span>
-                                        <h6 class="card-title">
-                                            Técnico de Informática
-                                            <span> - WP Sistemas</span>
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section-wrapper pb-60 pl-60 pr-60 pt-70">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-7">
-                                    <div class="resume-title-wrap">
-                                        <h4 class="section-title">
-                                            Working Skills
-                                        </h4>
-                                    </div>
-                                    <div class="skill-bar-wrap">
-                                        <div class="skill-bar-item">
-                                            <div class="title-wrap">
-                                                <h5 class="title">Web Design</h5>
-                                                <span class="count">75%</span>
-                                            </div>
-                                            <div class="progress-bar-wrap">
-                                                <div class="progress-line" style="width: 75%; background-color: #ff6464;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-bar-item">
-                                            <div class="title-wrap">
-                                                <h5 class="title">Full Stack Developement</h5>
-                                                <span class="count">50%</span>
-                                            </div>
-                                            <div class="progress-bar-wrap">
-                                                <div class="progress-line" style="width: 50%; background-color: #5185d4;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="skill-bar-item">
-                                            <div class="title-wrap">
-                                                <h5 class="title">Game Developement</h5>
-                                                <span class="count">60%</span>
-                                            </div>
-                                            <div class="progress-bar-wrap">
-                                                <div class="progress-line" style="width: 60%; background-color: #9272d4;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-5">
-                                    <div class="resume-title-wrap">
-                                        <h4 class="section-title"">
-                                            Competências
-                                        </h4>
-                                    </div>
-                                    <div class="knowledeges-item-wrap">
-                                        <span class="gk-item">React Native</span>
-                                        <span class="gk-item">Pacote Office</span>
-                                        <span class="gk-item">Unity3D</span>
-                                        <span class="gk-item">Python</span>
-                                        <span class="gk-item">C</span>
-                                        <span class="gk-item">HTML5</span>
-                                        <span class="gk-item">CSS3</span>
-                                        <span class="gk-item">JavaScript</span>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-copyright text-center pt-25 pb-25">
-                            <span>
-                                © 2024 Copyright Reserved by João Bonifácio
-                            </span>
-                        </div>
-                    </section>
-
-                    <section class="containers portifolio" id="portifolio" style="border-radius: 20px;">
-                        <div class="page-content-wrap">
-                            <div class="section-wrapper pl-60 pr-60 pt-60">
-                                <div class="page-title-wrap">
-                                    <h2 class="page-title">
-                                        Portifólio
-                                    </h2>
-                                </div>
-                            </div>
-                            <div class="section-wrapper pl-60 pr-60">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="card-wrap-portifolio" style="background: #f8f8f8;">
-                                            <div class="card-header one">
-                                                <img src="/img/LittleWhite.jpg" alt="LittleWhite" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text">Jogo de Aventura 2D - PC</p>
-                                                <a href="https://github.com/EstudioTangerina/Little-white" target="_blank"><button class="card-btn one">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-wrap-portifolio" style="background: #6cafcc;">
-                                            <div class="card-header one">
-                                                <img src="/img/MyDearMemory2.png" alt="MyDearMemory" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text">Jogo de Plataforma 2D - PC</p>
-                                                <a href="https://github.com/EstudioTangerina/MDM_V.0.2" target="_blank"><button class="card-btn two">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/Space.png);">
-                                            <div class="card-header one">
-                                                <img src="/img/SPACE BETWEEN US V4.1.png" alt="ASpaceBetweenUS" style="object-fit: contain; display: block; margin-left: auto; margin-right: auto; margin-top: 20px;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content" style="margin-top: 25px;">
-                                                <p class="card-text" style="color: white;">Jogo de Escolha 2D - PC</p>
-                                                <a href="https://programanave.itch.io/a-space-between-us" target="_blank"><button class="card-btn three">Itch.io</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/ceu.jpg);">
-                                            <div class="card-header one">
-                                                <img src="/img/SamuraiRush.png" alt="SamuraiRush" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text" style="color: white;">Jogo de Corrida Infinita 2D - Celular</p>
-                                                <a href="https://github.com/JoaoVBonifacio/Samurai-Rush" target="_blank"><button class="card-btn four" style="color: white;">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/Stars.png); background-color: #000000;">
-                                            <div class="card-header one">
-                                                <img src="/img/Blasteroid.png" alt="Blasteroid" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text" style="color: white;">Tiro Retro Multiplayer - PC</p>
-                                                <a href="https://gamejolt.com/games/blasteroid/637623" target="_blank"><button class="card-btn five" style="color: white;">GameJolt</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="portifolio">
-                                    <div class="portifolio-item">
-                                        <div class="card-wrap-portifolio" style="background: #f8f8f8;">
-                                            <div class="card-header one">
-                                                <img src="/img/LittleWhite.jpg" alt="LittleWhite" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text">Jogo de Aventura 2D - PC</p>
-                                                <a href="https://github.com/EstudioTangerina/Little-white" target="_blank"><button class="card-btn one">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="portifolio-item">
-                                        <div class="card-wrap-portifolio" style="background: #6cafcc;">
-                                            <div class="card-header one">
-                                                <img src="/img/MyDearMemory2.png" alt="MyDearMemory" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text">Jogo de Plataforma 2D - PC</p>
-                                                <a href="https://github.com/EstudioTangerina/MDM_V.0.2" target="_blank"><button class="card-btn two">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="portifolio-item">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/Space.png);">
-                                            <div class="card-header one">
-                                                <img src="/img/SPACE BETWEEN US V4.1.png" alt="ASpaceBetweenUS" style="object-fit: contain; display: block; margin-left: auto; margin-right: auto; margin-top: 20px;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content" style="margin-top: 25px;">
-                                                <p class="card-text" style="color: white;">Jogo de Escolha 2D - PC</p>
-                                                <a href="https://programanave.itch.io/a-space-between-us" target="_blank"><button class="card-btn three">Itch.io</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="portifolio-item">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/ceu.jpg);">
-                                            <div class="card-header one">
-                                                <img src="/img/SamuraiRush.png" alt="SamuraiRush" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text" style="color: white;">Jogo de Corrida Infinita 2D - Celular</p>
-                                                <a href="https://github.com/JoaoVBonifacio/Samurai-Rush" target="_blank"><button class="card-btn four" style="color: white;">Github</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="portifolio-item">
-                                        <div class="card-wrap-portifolio" style="background-image: url(/img/Stars.png); background-color: #000000;">
-                                            <div class="card-header one">
-                                                <img src="/img/Blasteroid.png" alt="Blasteroid" style="object-fit: contain;" height="300px" width="300px">
-                                            </div>
-                                            <div class="card-content">
-                                                <p class="card-text" style="color: white;">Tiro Retro Multiplayer - PC</p>
-                                                <a href="https://gamejolt.com/games/blasteroid/637623" target="_blank"><button class="card-btn five" style="color: white;">GameJolt</button></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="footer-copyright text-center pt-25 pb-25">
-                            <span>
-                                © 2024 Copyright Reserved by João Bonifácio
-                            </span>
-                        </div>
-                    </section>
-                </main>
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#sobre" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Sobre Mim</a>
+                    <a href="#experiencia" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Experiência</a>
+                    <a href="#projetos" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Projetos</a>
+                    <a href="#habilidades" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Habilidades</a>
+                    <a href="#contato" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+                </div>
             </div>
+        </nav>
+    </header>
 
-        </div>
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Seção de Abertura (Hero) -->
+        <section id="hero" class="text-center mb-16 md:mb-24">
+            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+                <img src="img/perfil.jpg" alt="Foto de João Bonifácio" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">João Bonifácio</h1>
+            <p class="text-xl md:text-2xl font-semibold text-primary dark:text-primary">Desenvolvedor Full Stack Python | Desenvolvedor de Jogos</p>
+            <div class="flex justify-center mt-4 space-x-4 text-textLight dark:text-textDark text-sm">
+                <a href="https://www.linkedin.com/in/joaovbonifacio/" target="_blank" class="hover:underline">Linkedin</a>
+                <a href="https://github.com/JoaoVBonifacio" target="_blank" class="hover:underline">GitHub</a>
+                <a href="mailto:jboni2014@gmail.com" class="hover:underline">jboni2014@gmail.com</a>
+            </div>
+        </section>
+
+        <!-- Seção Sobre Mim -->
+        <section id="sobre" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Sobre Mim</h2>
+            <p class="text-center text-textLight dark:text-textDark mb-12 max-w-3xl mx-auto">Desenvolvedor Full Stack Python em formação pela EBAC. Com experiência em suporte técnico e uma paixão por resolver problemas complexos, busco aplicar meus conhecimentos em desenvolvimento web, de jogos e mobile para criar soluções funcionais e atraentes. Minha experiência em projetos de prazos curtos (hackathons) me deu a capacidade de integrar elementos visuais e funcionais com coesão e agilidade.</p>
+        </section>
         
-        <!-- Guide Area -->
-        <div class="controls">
-            <div class="control active-btn" data-id="about">
-                <i class="fas fa-home"></i>
+        <!-- Seção de Experiência Profissional -->
+        <section id="experiencia" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Experiência Profissional</h2>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="font-bold text-xl">Customer Support Analyst II</h3>
+                        <span class="text-sm text-gray-500">Solutis Tecnologias LTDA | 09/2024-Atual</span>
+                    </div>
+                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
+                        <li>Registrar, categorizar, direcionar, acompanhar e solucionar os chamados técnicos da fila por meio do sistema de gestão de chamados.</li>
+                        <li>Executar o atendimento por acesso remoto/presencial sanando as dúvidas relacionadas ao escopo de atendimento do contrato na área de tecnologia.</li>
+                        <li>Solucionar requisições técnicas de modo adequado e dentro de um escopo e acordo de nível de serviço pré-definido.</li>
+                        <li>Suporte técnico a hardwares e softwares.</li>
+                        <li>Investigação e análise inicial de incidentes.</li>
+                    </ul>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="font-bold text-xl">Técnico de Informática</h3>
+                        <span class="text-sm text-gray-500">WP Sistemas | 05/2022-12/2023</span>
+                    </div>
+                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
+                        <li>Prestação de suporte técnico presencial e remoto a clientes, garantindo a resolução eficiente de problemas e a satisfação do cliente.</li>
+                        <li>Coordenação da distribuição de tarefas entre os técnicos do setor, visando otimizar a produtividade e a agilidade no atendimento às demandas.</li>
+                        <li>Execução de instalação e configuração do sistema Windows Server, assegurando o funcionamento adequado dos servidores e redes.</li>
+                        <li>Realização de montagem, manutenção, formatação e configuração de computadores desktop e servidores.</li>
+                    </ul>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+                        <h3 class="font-bold text-xl">Jovem Aprendiz (T.I. e Processos)</h3>
+                        <span class="text-sm text-gray-500">Gaia Service Tech | 02/2020-04/2021</span>
+                    </div>
+                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
+                        <li>Desenvolvimento de planilhas no sistema TOTVS para o suporte ao setor de compras, otimizando processos e garantindo maior eficiência operacional.</li>
+                        <li>Prestação de suporte técnico Help Desk, oferecendo assistência ágil e eficaz aos usuários internos em questões relacionadas à tecnologia.</li>
+                        <li>Colaboração técnica no desenvolvimento do website da empresa, contribuindo para a criação de uma plataforma online funcional e atraente.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="control" data-id="resume">
-                <i class="fas fa-user"></i>
+        </section>
+
+        <!-- Seção de Projetos -->
+        <section id="projetos" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Projetos Relevantes</h2>
+            
+            <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                <!-- Tabs de filtro de projetos -->
+                <div class="w-full md:w-1/4 mb-8 md:mb-0">
+                    <div class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto p-2 bg-cardLight dark:bg-cardDark rounded-lg shadow-md">
+                        <button class="project-tab active w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 bg-primary text-white">Todos</button>
+                        <button class="project-tab w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 text-textLight dark:text-textDark">Projetos Web</button>
+                        <button class="project-tab w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 text-textLight dark:text-textDark">Projetos de Jogos</button>
+                    </div>
+                </div>
+
+                <!-- Conteúdo dos projetos -->
+                <div id="project-container" class="w-full md:w-3/4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                    <!-- Projeto Login-Register-Firebase -->
+                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
+                        <img src="img/Firebase_Show.jpeg" alt="Pré-visualização do projeto Login-Register-Firebase" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
+                        <h3 class="font-bold text-xl mb-2">Login-Register-Firebase</h3>
+                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Sistema de login e registro de usuários com validação de dados, utilizando Firebase Authentication para segurança e gerenciamento de usuários. O projeto integra HTML, CSS e Python (Django) no backend para uma solução completa de autenticação.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Python/Django</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
+                            <a href="https://vercel-login-register-opal.vercel.app/index.html" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto AJR Fanpage -->
+                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
+                        <img src="img/AJR_Show.jpeg" alt="Pré-visualização do projeto AJR Fanpage" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
+                        <h3 class="font-bold text-xl mb-2">AJR Fanpage</h3>
+                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Página web dedicada à banda AJR, com foco em um design limpo e responsivo. O projeto reúne informações sobre álbuns e músicas, servindo como uma ótima prática de front-end, estilização e organização visual com HTML, CSS e JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
+                            <a href="https://ajr-fanpage.vercel.app/" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                     <!-- Projeto Devaneio -->
+                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
+                        <img src="img/Devaneio_Show.jpeg" alt="Pré-visualização do jogo Devaneio" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
+                        <h3 class="font-bold text-xl mb-2">Devaneio (Global Game Jam)</h3>
+                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo top-down "Devaneio" criado em apenas 3 dias para a Global Game Jam. O jogo foi desenvolvido com Unity e C#, e as artes foram feitas com Piskel, demonstrando agilidade e criatividade em um ambiente de desenvolvimento rápido.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Piskel</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
+                            <a href="https://v3.globalgamejam.org/2019/games/devaneio" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto A Space Between Us -->
+                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
+                        <img src="img/ASpaceBetweenUs.jpg" alt="Pré-visualização do jogo A Space Between Us" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
+                        <h3 class="font-bold text-xl mb-2">A Space Between Us</h3>
+                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo educativo em 2D desenvolvido com Unity e C# com o objetivo de conscientizar sobre os desafios de refugiados. Um protótipo funcional que explora a interatividade para uma causa social.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">C#</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
+                            <a href="https://programanave.itch.io/a-space-between-us" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                    <!-- Projeto Blasteroid -->
+                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
+                        <img src="img/Blasteroid_show.webp" alt="Pré-visualização do jogo Blasteroid" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
+                        <h3 class="font-bold text-xl mb-2">Blasteroid</h3>
+                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo criado durante uma GameJam para o navegador OperaGX.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">GameMaker</span>
+                            <span class="tech-tag">GML</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
+                            <a href="https://programanave.itch.io/a-space-between-us" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="control" data-id="portifolio">
-                <i class="fa-solid fa-briefcase"></i>
+        </section>
+
+        <!-- Seção de Habilidades -->
+        <section id="habilidades" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Habilidades e Competências</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Web</h3>
+                    <p class="text-textLight dark:text-textDark">HTML, CSS, JavaScript, Python, Django, Sistemas Web</p>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento de Jogos</h3>
+                    <p class="text-textLight dark:text-textDark">Unity, C#</p>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Mobile</h3>
+                    <p class="text-textLight dark:text-textDark">React Native</p>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Experiências Adicionais</h3>
+                    <p class="text-textLight dark:text-textDark">Suporte Técnico, Instalação e Configuração de Windows Server, Manutenção de Computadores</p>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Idiomas</h3>
+                    <p class="text-textLight dark:text-textDark">Inglês - Básico a Intermediário</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Contato -->
+        <section id="contato" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+            <div class="max-w-xl mx-auto bg-cardLight dark:bg-cardDark p-8 rounded-lg shadow-lg text-center">
+                <p class="text-textLight dark:text-textDark mb-4">Fico à disposição para oportunidades e colaborações.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:jboni2014@gmail.com" class="bg-primary text-white font-semibold py-3 px-6 rounded-full inline-block hover:bg-blue-600 transition duration-300">Enviar E-mail</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Descrição Detalhada -->
+    <div id="description-modal" class="modal">
+        <div class="modal-content text-textLight dark:text-textDark">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+            <div id="modal-body" class="text-gray-700 dark:text-gray-300">
+                <div id="loading-spinner" class="hidden flex justify-center items-center h-48">
+                    <svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-primary dark:text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
+                <p id="generated-description"></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para Carta de Apresentação -->
+    <div id="cover-letter-modal" class="modal">
+        <div class="modal-content text-textLight dark:text-textDark">
+            <span class="close-button">&times;</span>
+            <h3 class="text-2xl font-bold mb-4">Rascunho de Carta de Apresentação</h3>
+            <div id="cover-letter-body" class="text-gray-700 dark:text-gray-300">
+                <div id="cover-letter-spinner" class="hidden flex justify-center items-center h-48">
+                    <svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-primary dark:text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
+                <div id="cover-letter-content">
+                    <p id="generated-cover-letter" class="whitespace-pre-wrap"></p>
+                    <button id="copy-cover-letter-btn" class="bg-secondary text-white font-semibold py-2 px-4 rounded-full mt-4 hover:bg-yellow-600 transition duration-300">Copiar para a Área de Transferência</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white dark:text-gray-200">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 João Bonifácio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
-    <script src="https://kit.fontawesome.com/2b8ef6da22.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script> 
+    <script src="app.js"></script>
 </body>
 </html>
