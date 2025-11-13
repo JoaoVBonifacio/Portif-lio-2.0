@@ -33,7 +33,6 @@
 </head>
 <body class="antialiased bg-backgroundLight text-textLight dark:bg-backgroundDark dark:text-textDark transition-colors duration-300">
 
-    <!-- Navbar -->
     <header class="bg-white/80 dark:bg-cardDark/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -42,11 +41,10 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#sobre" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Sobre Mim</a>
-                        <a href="#experiencia" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Experiência</a>
-                        <a href="#projetos" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projetos</a>
-                        <a href="#habilidades" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Habilidades</a>
-                        <a href="#contato" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contato</a>
+                        <a href="#acolhimento" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Início</a>
+                        <a href="#servicos" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Serviços</a>
+                        <a href="#portfolio" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Portfólio</a>
+                        <a href="#sobre-contato" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contato</a>
                     </div>
                 </div>
                 <div class="flex items-center md:hidden">
@@ -78,11 +76,10 @@
             </div>
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#sobre" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Sobre Mim</a>
-                    <a href="#experiencia" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Experiência</a>
-                    <a href="#projetos" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Projetos</a>
-                    <a href="#habilidades" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Habilidades</a>
-                    <a href="#contato" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contato</a>
+                    <a href="#acolhimento" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                    <a href="#servicos" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Serviços</a>
+                    <a href="#portfolio" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Portfólio</a>
+                    <a href="#sobre-contato" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contato</a>
                 </div>
             </div>
         </nav>
@@ -90,13 +87,14 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
-        <!-- Seção de Abertura (Hero) -->
-        <section id="hero" class="text-center mb-16 md:mb-24">
+        <section id="acolhimento" class="text-center mb-16 md:mb-24">
+            <p class="text-xl md:text-2xl text-textLight dark:text-textDark mb-6 max-w-2xl mx-auto">Tem uma ideia incrível, mas não sabe como tirá-la do papel e transformá-la em um projeto digital de sucesso?</p>
             <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
                 <img src="img/perfil.jpg" alt="Foto de João Bonifácio" class="w-full h-full object-cover">
             </div>
             <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">João Bonifácio</h1>
             <p class="text-xl md:text-2xl font-semibold text-primary dark:text-primary">Desenvolvedor Full Stack Python | Desenvolvedor de Jogos</p>
+            <p class="text-lg md:text-xl font-medium text-textLight dark:text-textDark mt-4">Eu transformo suas ideias em soluções web e de jogos, funcionais e atraentes.</p>
             <div class="flex justify-center mt-4 space-x-4 text-textLight dark:text-textDark text-sm">
                 <a href="https://www.linkedin.com/in/joaovbonifacio/" target="_blank" class="hover:underline">Linkedin</a>
                 <a href="https://github.com/JoaoVBonifacio" target="_blank" class="hover:underline">GitHub</a>
@@ -104,61 +102,32 @@
             </div>
         </section>
 
-        <!-- Seção Sobre Mim -->
-        <section id="sobre" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-2">Sobre Mim</h2>
-            <p class="text-center text-textLight dark:text-textDark mb-12 max-w-3xl mx-auto">Desenvolvedor Full Stack Python em formação pela EBAC. Com experiência em suporte técnico e uma paixão por resolver problemas complexos, busco aplicar meus conhecimentos em desenvolvimento web, de jogos e mobile para criar soluções funcionais e atraentes. Minha experiência em projetos de prazos curtos (hackathons) me deu a capacidade de integrar elementos visuais e funcionais com coesão e agilidade.</p>
-        </section>
-        
-        <!-- Seção de Experiência Profissional -->
-        <section id="experiencia" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Experiência Profissional</h2>
-            <div class="space-y-8 max-w-4xl mx-auto">
+        <section id="servicos" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Como eu te ajudo (Meus Serviços)</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                        <h3 class="font-bold text-xl">Customer Support Analyst II</h3>
-                        <span class="text-sm text-gray-500">Solutis Tecnologias LTDA | 09/2024-Atual</span>
-                    </div>
-                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
-                        <li>Registrar, categorizar, direcionar, acompanhar e solucionar os chamados técnicos da fila por meio do sistema de gestão de chamados.</li>
-                        <li>Executar o atendimento por acesso remoto/presencial sanando as dúvidas relacionadas ao escopo de atendimento do contrato na área de tecnologia.</li>
-                        <li>Solucionar requisições técnicas de modo adequado e dentro de um escopo e acordo de nível de serviço pré-definido.</li>
-                        <li>Suporte técnico a hardwares e softwares.</li>
-                        <li>Investigação e análise inicial de incidentes.</li>
-                    </ul>
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Web</h3>
+                    <p class="text-textLight dark:text-textDark">Criação de sites e aplicações web completas, desde o design responsivo (HTML, CSS, JS) até o back-end robusto (Python, Django).</p>
                 </div>
                 <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                        <h3 class="font-bold text-xl">Técnico de Informática</h3>
-                        <span class="text-sm text-gray-500">WP Sistemas | 05/2022-12/2023</span>
-                    </div>
-                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
-                        <li>Prestação de suporte técnico presencial e remoto a clientes, garantindo a resolução eficiente de problemas e a satisfação do cliente.</li>
-                        <li>Coordenação da distribuição de tarefas entre os técnicos do setor, visando otimizar a produtividade e a agilidade no atendimento às demandas.</li>
-                        <li>Execução de instalação e configuração do sistema Windows Server, assegurando o funcionamento adequado dos servidores e redes.</li>
-                        <li>Realização de montagem, manutenção, formatação e configuração de computadores desktop e servidores.</li>
-                    </ul>
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento de Jogos</h3>
+                    <p class="text-textLight dark:text-textDark">Desenvolvimento de jogos 2D e 3D utilizando Unity e C#, transformando conceitos em experiências interativas.</p>
                 </div>
                 <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                        <h3 class="font-bold text-xl">Jovem Aprendiz (T.I. e Processos)</h3>
-                        <span class="text-sm text-gray-500">Gaia Service Tech | 02/2020-04/2021</span>
-                    </div>
-                    <ul class="list-disc list-inside text-textLight dark:text-textDark space-y-1">
-                        <li>Desenvolvimento de planilhas no sistema TOTVS para o suporte ao setor de compras, otimizando processos e garantindo maior eficiência operacional.</li>
-                        <li>Prestação de suporte técnico Help Desk, oferecendo assistência ágil e eficaz aos usuários internos em questões relacionadas à tecnologia.</li>
-                        <li>Colaboração técnica no desenvolvimento do website da empresa, contribuindo para a criação de uma plataforma online funcional e atraente.</li>
-                    </ul>
+                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Mobile</h3>
+                    <p class="text-textLight dark:text-textDark">Criação de aplicativos mobile (React Native) para que sua ideia alcance usuários em qualquer plataforma.</p>
+                </div>
+                <div class="card p-6 bg-cardLight dark:bg-cardDark">
+                    <h3 class="font-bold text-lg mb-2">Suporte e Infraestrutura</h3>
+                    <p class="text-textLight dark:text-textDark">Experiência em Suporte Técnico, instalação e configuração de Windows Server e manutenção de computadores.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Projetos -->
-        <section id="projetos" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Projetos Relevantes</h2>
+        <section id="portfolio" class="mb-16 md:mb-24 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Meu Portfólio de Projetos</h2>
             
             <div class="flex flex-col md:flex-row items-start md:space-x-8">
-                <!-- Tabs de filtro de projetos -->
                 <div class="w-full md:w-1/4 mb-8 md:mb-0">
                     <div class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto p-2 bg-cardLight dark:bg-cardDark rounded-lg shadow-md">
                         <button class="project-tab active w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 bg-primary text-white">Todos</button>
@@ -167,10 +136,8 @@
                     </div>
                 </div>
 
-                <!-- Conteúdo dos projetos -->
                 <div id="project-container" class="w-full md:w-3/4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                    <!-- Projeto Login-Register-Firebase -->
                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
                         <img src="img/Firebase_Show.jpeg" alt="Pré-visualização do projeto Login-Register-Firebase" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">Login-Register-Firebase</h3>
@@ -186,7 +153,6 @@
                         </div>
                     </div>
 
-                    <!-- SwiftPost -->
                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
                         <img src="img/SwiftPost.jpg" alt="Pré-visualização do projeto SwiftPost" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">SwiftPost</h3>
@@ -202,7 +168,6 @@
                         </div>
                     </div>
 
-                    <!-- Projeto AJR Fanpage -->
                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
                         <img src="img/AJR_Show.jpeg" alt="Pré-visualização do projeto AJR Fanpage" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">AJR Fanpage</h3>
@@ -217,8 +182,7 @@
                         </div>
                     </div>
 
-                     <!-- Projeto Devaneio -->
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
+                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
                         <img src="img/Devaneio_Show.jpeg" alt="Pré-visualização do jogo Devaneio" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">Devaneio (Global Game Jam)</h3>
                         <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo top-down "Devaneio" criado em apenas 3 dias para a Global Game Jam. O jogo foi desenvolvido com Unity e C#, e as artes foram feitas com Piskel, demonstrando agilidade e criatividade em um ambiente de desenvolvimento rápido.</p>
@@ -232,7 +196,6 @@
                         </div>
                     </div>
 
-                    <!-- Projeto A Space Between Us -->
                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
                         <img src="img/ASpaceBetweenUs.jpg" alt="Pré-visualização do jogo A Space Between Us" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">A Space Between Us</h3>
@@ -246,7 +209,6 @@
                         </div>
                     </div>
 
-                    <!-- Projeto Blasteroid -->
                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
                         <img src="img/Blasteroid_show.webp" alt="Pré-visualização do jogo Blasteroid" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
                         <h3 class="font-bold text-xl mb-2">Blasteroid</h3>
@@ -263,47 +225,22 @@
                 </div>
             </div>
         </section>
-
-        <!-- Seção de Habilidades -->
-        <section id="habilidades" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Habilidades e Competências</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Web</h3>
-                    <p class="text-textLight dark:text-textDark">HTML, CSS, JavaScript, Python, Django, Sistemas Web</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento de Jogos</h3>
-                    <p class="text-textLight dark:text-textDark">Unity, C#</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Mobile</h3>
-                    <p class="text-textLight dark:text-textDark">React Native</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Experiências Adicionais</h3>
-                    <p class="text-textLight dark:text-textDark">Suporte Técnico, Instalação e Configuração de Windows Server, Manutenção de Computadores</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Idiomas</h3>
-                    <p class="text-textLight dark:text-textDark">Inglês - Básico a Intermediário</p>
-                </div>
-            </div>
-        </section>
         
-        <!-- Seção de Contato -->
-        <section id="contato" class="scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Entre em Contato</h2>
+        <section id="sobre-contato" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Quem sou eu?</h2>
+            <p class="text-center text-textLight dark:text-textDark mb-12 max-w-3xl mx-auto">Desenvolvedor Full Stack Python em formação pela EBAC. Com experiência em suporte técnico e uma paixão por resolver problemas complexos, busco aplicar meus conhecimentos em desenvolvimento web, de jogos e mobile para criar soluções funcionais e atraentes. Minha experiência em projetos de prazos curtos (hackathons) me deu a capacidade de integrar elementos visuais e funcionais com coesão e agilidade.</p>
+            
+            <h2 class="text-3xl font-bold text-center mb-12">Vamos conversar?</h2>
             <div class="max-w-xl mx-auto bg-cardLight dark:bg-cardDark p-8 rounded-lg shadow-lg text-center">
-                <p class="text-textLight dark:text-textDark mb-4">Fico à disposição para oportunidades e colaborações.</p>
+                <p class="text-textLight dark:text-textDark mb-6">Fico à disposição para oportunidades e colaborações. Entre em contato pelo e-mail ou diretamente pelo WhatsApp.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="mailto:jboni2014@gmail.com" class="bg-primary text-white font-semibold py-3 px-6 rounded-full inline-block hover:bg-blue-600 transition duration-300">Enviar E-mail</a>
+                    <a href="https://wa.me/5521991383322" target="_blank" class="bg-green-500 text-white font-semibold py-3 px-6 rounded-full inline-block hover:bg-green-600 transition duration-300">Chamar no WhatsApp</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal para Descrição Detalhada -->
     <div id="description-modal" class="modal">
         <div class="modal-content text-textLight dark:text-textDark">
             <span class="close-button">&times;</span>
@@ -320,7 +257,6 @@
         </div>
     </div>
     
-    <!-- Modal para Carta de Apresentação -->
     <div id="cover-letter-modal" class="modal">
         <div class="modal-content text-textLight dark:text-textDark">
             <span class="close-button">&times;</span>
@@ -340,7 +276,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 dark:bg-gray-950 text-white dark:text-gray-200">
         <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
             <p>&copy; 2025 João Bonifácio. Todos os direitos reservados.</p>
