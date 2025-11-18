@@ -1,287 +1,610 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Bonifácio - Desenvolvedor Full Stack Python</title>
+    <title>João Bonifácio | Soluções Digitais</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/icone.jpg">
+    <!-- Ícones via Phosphor Icons (mais modernos) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#2563EB',
-                        secondary: '#F59E0B',
-                        backgroundLight: '#F8F9FA',
-                        backgroundDark: '#111827',
-                        cardLight: '#FFFFFF',
-                        cardDark: '#1F2937',
-                        textLight: '#374151',
-                        textDark: '#D1D5DB'
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6', // Azul vibrante
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        dark: {
+                            900: '#0f172a', // Fundo muito escuro, quase preto
+                            800: '#1e293b', // Card bg
+                            700: '#334155', // Border
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
                 }
             }
         }
     </script>
-    
-</head>
-<body class="antialiased bg-backgroundLight text-textLight dark:bg-backgroundDark dark:text-textDark transition-colors duration-300">
 
-    <header class="bg-white/80 dark:bg-cardDark/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-primary dark:text-primary">João Bonifácio</a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#acolhimento" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Início</a>
-                        <a href="#servicos" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Serviços</a>
-                        <a href="#portfolio" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Portfólio</a>
-                        <a href="#sobre-contato" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contato</a>
+    <style>
+        /* Estilos personalizados para scrollbar e detalhes finos */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.1), transparent 40%);
+        }
+
+        /* Utilitários de Texto */
+        .text-balance {
+            text-wrap: balance;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-brand-500 shadow-lg shadow-brand-500/20">
+                        <img src="img/icone.jpg" alt="Logo" class="w-full h-full object-cover">
                     </div>
+                    <a href="#" class="text-xl font-bold tracking-tight hover:text-brand-500 transition-colors">
+                        Boni<span class="text-brand-500">.dev</span>
+                    </a>
                 </div>
-                <div class="flex items-center md:hidden">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
-                        <svg id="moon-icon-mobile" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                        <svg id="sun-icon-mobile" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                    </button>
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
-                        <span class="sr-only">Abrir menu principal</span>
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-medium hover:text-brand-500 transition-colors">Início</a>
+                    <a href="#servicos" class="text-sm font-medium hover:text-brand-500 transition-colors">Serviços</a>
+                    <a href="#portfolio" class="text-sm font-medium hover:text-brand-500 transition-colors">Portfólio</a>
+                    <a href="#sobre" class="text-sm font-medium hover:text-brand-500 transition-colors">Sobre</a>
+                    
+                    <!-- Botão CTA -->
+                    <a href="#contato" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-brand-600/20 hover:shadow-brand-600/40">
+                        Falar com Especialista
+                    </a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400">
+                        <i class="ph ph-moon text-xl hidden dark:block"></i>
+                        <i class="ph ph-sun text-xl block dark:hidden"></i>
                     </button>
                 </div>
-                <div class="hidden md:block">
-                    <button id="theme-toggle-desktop" class="p-2 rounded-md focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300">
-                        <svg id="moon-icon-desktop" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                        <svg id="sun-icon-desktop" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                     <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400">
+                        <i class="ph ph-moon text-xl hidden dark:block"></i>
+                        <i class="ph ph-sun text-xl block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-brand-500 transition-colors">
+                        <i class="ph ph-list text-3xl"></i>
                     </button>
                 </div>
             </div>
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#acolhimento" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Início</a>
-                    <a href="#servicos" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Serviços</a>
-                    <a href="#portfolio" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Portfólio</a>
-                    <a href="#sobre-contato" class="nav-link block px-3 py-2 rounded-md text-base font-medium">Contato</a>
-                </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-dark-900 border-b border-gray-100 dark:border-dark-700 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#inicio" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-brand-500">Início</a>
+                <a href="#servicos" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-brand-500">Serviços</a>
+                <a href="#portfolio" class="block px-3 py-3 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-brand-500">Portfólio</a>
+                <a href="#contato" class="block px-3 py-3 mt-4 text-center bg-brand-600 text-white rounded-lg font-bold">Entrar em Contato</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-
-        <section id="acolhimento" class="text-center mb-16 md:mb-24">
-            <p class="text-xl md:text-2xl text-textLight dark:text-textDark mb-6 max-w-2xl mx-auto">Tem uma ideia incrível, mas não sabe como tirá-la do papel e transformá-la em um projeto digital de sucesso?</p>
-            <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
-                <img src="img/perfil.jpg" alt="Foto de João Bonifácio" class="w-full h-full object-cover">
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-2">João Bonifácio</h1>
-            <p class="text-xl md:text-2xl font-semibold text-primary dark:text-primary">Desenvolvedor Full Stack Python | Desenvolvedor de Jogos</p>
-            <p class="text-lg md:text-xl font-medium text-textLight dark:text-textDark mt-4">Eu transformo suas ideias em soluções web e de jogos, funcionais e atraentes.</p>
-            <div class="flex justify-center mt-4 space-x-4 text-textLight dark:text-textDark text-sm">
-                <a href="https://www.linkedin.com/in/joaovbonifacio/" target="_blank" class="hover:underline">Linkedin</a>
-                <a href="https://github.com/JoaoVBonifacio" target="_blank" class="hover:underline">GitHub</a>
-                <a href="mailto:jboni2014@gmail.com" class="hover:underline">jboni2014@gmail.com</a>
-            </div>
-        </section>
-
-        <section id="servicos" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Como eu te ajudo (Meus Serviços)</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Web</h3>
-                    <p class="text-textLight dark:text-textDark">Criação de sites e aplicações web completas, desde o design responsivo (HTML, CSS, JS) até o back-end robusto (Python, Django).</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento de Jogos</h3>
-                    <p class="text-textLight dark:text-textDark">Desenvolvimento de jogos 2D e 3D utilizando Unity e C#, transformando conceitos em experiências interativas.</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Desenvolvimento Mobile</h3>
-                    <p class="text-textLight dark:text-textDark">Criação de aplicativos mobile (React Native) para que sua ideia alcance usuários em qualquer plataforma.</p>
-                </div>
-                <div class="card p-6 bg-cardLight dark:bg-cardDark">
-                    <h3 class="font-bold text-lg mb-2">Suporte e Infraestrutura</h3>
-                    <p class="text-textLight dark:text-textDark">Experiência em Suporte Técnico, instalação e configuração de Windows Server e manutenção de computadores.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio" class="mb-16 md:mb-24 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12">Meu Portfólio de Projetos</h2>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="inicio" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden hero-gradient">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)] pointer-events-none"></div>
             
-            <div class="flex flex-col md:flex-row items-start md:space-x-8">
-                <div class="w-full md:w-1/4 mb-8 md:mb-0">
-                    <div class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2 overflow-x-auto p-2 bg-cardLight dark:bg-cardDark rounded-lg shadow-md">
-                        <button class="project-tab active w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 bg-primary text-white">Todos</button>
-                        <button class="project-tab w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 text-textLight dark:text-textDark">Projetos Web</button>
-                        <button class="project-tab w-full py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 text-textLight dark:text-textDark">Projetos de Jogos</button>
-                    </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-sm font-medium mb-8 animate-fade-in-up">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    Disponível para novos projetos
                 </div>
 
-                <div id="project-container" class="w-full md:w-3/4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white mb-8 text-balance animate-fade-in-up" style="animation-delay: 0.1s;">
+                    Sua ideia merece ser <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-purple-600">Extraordinária.</span>
+                </h1>
                 
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
-                        <img src="img/Firebase_Show.jpeg" alt="Pré-visualização do projeto Login-Register-Firebase" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">Login-Register-Firebase</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Sistema de login e registro de usuários com validação de dados, utilizando Firebase Authentication para segurança e gerenciamento de usuários. O projeto integra HTML, CSS e Python (Django) no backend para uma solução completa de autenticação.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">Python/Django</span>
-                            <span class="tech-tag">Firebase</span>
+                <p class="mt-4 text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10 text-balance animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Desenvolvedor Full Stack Python e Game Developer. Eu transformo conceitos complexos em experiências digitais, funcionais e imersivas que geram resultados.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-bold text-lg transition-all shadow-lg shadow-brand-600/25 hover:shadow-brand-600/50 hover:-translate-y-1">
+                        Ver Projetos
+                    </a>
+                    <a href="#contato" class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-dark-800 text-gray-900 dark:text-white border border-gray-200 dark:border-dark-700 hover:border-brand-500 dark:hover:border-brand-500 rounded-full font-bold text-lg transition-all hover:-translate-y-1">
+                        Falar Comigo
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-gray-200 dark:border-dark-700/50 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-brand-500 mb-1">4+</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Linguagens</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-brand-500 mb-1">10+</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Projetos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-brand-500 mb-1">100%</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Comprometimento</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-brand-500 mb-1">24/7</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Suporte</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicos" class="py-24 bg-white dark:bg-dark-900 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm mb-3">Especialidades</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Como posso impulsionar seu negócio</h3>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-dark-800 border border-gray-100 dark:border-dark-700 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="ph ph-globe text-3xl"></i>
                         </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://vercel-login-register-opal.vercel.app/index.html" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
-                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Desenvolvimento Web</h4>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Criação de sites e aplicações web robustas. Do design responsivo (HTML, CSS, JS) até o back-end escalável com Python e Django.
+                        </p>
                     </div>
 
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
-                        <img src="img/SwiftPost.jpg" alt="Pré-visualização do projeto SwiftPost" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">SwiftPost</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Desenvolvimento de uma aplicação web completa inspirada no Twitter, com backend robusto em Python/Django e frontend reativo em HTML, CSS e JavaScript puro.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">Python/Django</span>
-                            <span class="tech-tag">JavaScript</span>
+                    <!-- Service Card 2 -->
+                    <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-dark-800 border border-gray-100 dark:border-dark-700 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="ph ph-game-controller text-3xl"></i>
                         </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://joaovbonifacio.pythonanywhere.com/index.html" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
-                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Desenvolvimento de Jogos</h4>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Jogos 2D e 3D imersivos desenvolvidos com Unity e C#. Transformo mecânicas criativas em diversão interativa.
+                        </p>
                     </div>
 
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="web">
-                        <img src="img/AJR_Show.jpeg" alt="Pré-visualização do projeto AJR Fanpage" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">AJR Fanpage</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Página web dedicada à banda AJR, com foco em um design limpo e responsivo. O projeto reúne informações sobre álbuns e músicas, servindo como uma ótima prática de front-end, estilização e organização visual com HTML, CSS e JavaScript.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
+                    <!-- Service Card 3 -->
+                    <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-dark-800 border border-gray-100 dark:border-dark-700 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                            <i class="ph ph-device-mobile text-3xl"></i>
                         </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://ajr-fanpage.vercel.app/" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
-                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Apps Mobile & Suporte</h4>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Aplicações mobile com React Native e suporte técnico especializado em infraestrutura e servidores.
+                        </p>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                     <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
-                        <img src="img/Devaneio_Show.jpeg" alt="Pré-visualização do jogo Devaneio" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">Devaneio (Global Game Jam)</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo top-down "Devaneio" criado em apenas 3 dias para a Global Game Jam. O jogo foi desenvolvido com Unity e C#, e as artes foram feitas com Piskel, demonstrando agilidade e criatividade em um ambiente de desenvolvimento rápido.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Piskel</span>
-                        </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://v3.globalgamejam.org/2019/games/devaneio" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
-                        </div>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-24 bg-gray-50 dark:bg-[#0B1121]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div>
+                        <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm mb-3">Portfólio</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Projetos Selecionados</h3>
                     </div>
+                    
+                    <!-- Filters -->
+                    <div class="flex space-x-2 bg-white dark:bg-dark-800 p-1.5 rounded-xl shadow-sm border border-gray-200 dark:border-dark-700">
+                        <button class="project-tab active px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300" data-filter="all">Todos</button>
+                        <button class="project-tab px-4 py-2 rounded-lg text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300" data-filter="web">Web</button>
+                        <button class="project-tab px-4 py-2 rounded-lg text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300" data-filter="jogos">Jogos</button>
+                    </div>
+                </div>
 
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
-                        <img src="img/ASpaceBetweenUs.jpg" alt="Pré-visualização do jogo A Space Between Us" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">A Space Between Us</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo educativo em 2D desenvolvido com Unity e C# com o objetivo de conscientizar sobre os desafios de refugiados. Um protótipo funcional que explora a interatividade para uma causa social.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
+                <!-- Projects Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="web">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/Firebase_Show.jpeg" alt="Login Firebase" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://programanave.itch.io/a-space-between-us" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Django</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Firebase</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Login System Fullstack</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Sistema robusto de autenticação integrando Django no backend e Firebase Security.</p>
+                            <div class="flex items-center gap-4">
+                                <a href="https://vercel-login-register-opal.vercel.app/index.html" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio/Login-Register-Firebase" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card card p-4 bg-cardLight dark:bg-cardDark" data-category="jogos">
-                        <img src="img/Blasteroid_show.webp" alt="Pré-visualização do jogo Blasteroid" class="w-full h-48 object-cover rounded-lg mb-4 aspect-square">
-                        <h3 class="font-bold text-xl mb-2">Blasteroid</h3>
-                        <p class="text-textLight dark:text-textDark mb-4 project-desc">Jogo criado durante uma GameJam para o navegador OperaGX.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="tech-tag">GameMaker</span>
-                            <span class="tech-tag">GML</span>
+                    <!-- Project 2 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="web">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/SwiftPost.jpg" alt="SwiftPost" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mt-auto">
-                            <a href="https://gamejolt.com/games/blasteroid/637623" target="_blank" class="bg-primary text-white font-semibold py-2 px-4 rounded-full text-sm text-center hover:bg-blue-600 transition duration-300">Ver Projeto</a>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Python</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">JS</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">SwiftPost</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Aplicação web estilo Twitter, focada em performance e interatividade em tempo real.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://joaovbonifacio.pythonanywhere.com/index.html" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio/ebac_final_project" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="jogos">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/Devaneio_Show.jpeg" alt="Devaneio" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Unity</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">C#</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Devaneio (GameJam)</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Jogo Top-Down desenvolvido em 72h. Foco em narrativa visual e mecânicas polidas.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://v3.globalgamejam.org/2019/games/devaneio" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- Project 4 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="web">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/AJR_Show.jpeg" alt="AJR Fanpage" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Frontend</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Design</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">AJR Fan Page</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Página imersiva para fãs, explorando design responsivo e interações visuais.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://ajr-fanpage.vercel.app/" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio/AJR-fanpage" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 5 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="jogos">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/ASpaceBetweenUs.jpg" alt="A Space Between Us" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Unity</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Social Impact</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">A Space Between Us</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Jogo educativo com impacto social, conscientizando sobre a crise de refugiados.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://programanave.itch.io/a-space-between-us" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio/TrabalhoDMRefugiados" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 6 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="jogos">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/Blasteroid_show.webp" alt="Blasteroid" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">GameMaker</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Arcade</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Blasteroid</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Shooter arcade clássico desenvolvido para a OperaGX GameJam.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://gamejolt.com/games/blasteroid/637623" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="https://github.com/JoaoVBonifacio" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i class="ph ph-github-logo text-lg"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 7 -->
+                    <article class="project-card group relative rounded-2xl overflow-hidden bg-white dark:bg-dark-800 border border-gray-100 dark:border-dark-700 shadow-sm hover:shadow-xl transition-all duration-300" data-category="web">
+                        <div class="aspect-video overflow-hidden relative">
+                            <img src="img/Brazuka.jpeg" alt="Brazuka" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-2 mb-4 flex-wrap">
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">React Native</span>
+                                <span class="px-2.5 py-1 rounded-md bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">Firebase</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Brazuka</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 line-clamp-2 project-desc">Site para culinária brasileira e portuguesa, com gestão de menu finalização de pedidos por WhatsApp.</p>
+                             <div class="flex items-center gap-4">
+                                <a href="https://bra-zuka.vercel.app/" target="_blank" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-semibold hover:gap-3 transition-all text-sm">
+                                    Ver Projeto <i class="ph ph-arrow-right"></i>
+                                </a>
+                                <a href="#" target="_blank" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors text-sm">
+                                    <i></i> Projeto Privado
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
                 </div>
             </div>
         </section>
-        
-        <section id="sobre-contato" class="scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-2">Quem sou eu?</h2>
-            <p class="text-center text-textLight dark:text-textDark mb-12 max-w-3xl mx-auto">Desenvolvedor Full Stack Python em formação pela EBAC. Com experiência em suporte técnico e uma paixão por resolver problemas complexos, busco aplicar meus conhecimentos em desenvolvimento web, de jogos e mobile para criar soluções funcionais e atraentes. Minha experiência em projetos de prazos curtos (hackathons) me deu a capacidade de integrar elementos visuais e funcionais com coesão e agilidade.</p>
-            
-            <h2 class="text-3xl font-bold text-center mb-12">Vamos conversar?</h2>
-            <div class="max-w-xl mx-auto bg-cardLight dark:bg-cardDark p-8 rounded-lg shadow-lg text-center">
-                <p class="text-textLight dark:text-textDark mb-6">Fico à disposição para oportunidades e colaborações. Entre em contato pelo e-mail ou diretamente pelo WhatsApp.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="mailto:jboni2014@gmail.com" class="bg-primary text-white font-semibold py-3 px-6 rounded-full inline-block hover:bg-blue-600 transition duration-300">Enviar E-mail</a>
-                    <a href="https://wa.me/5521991383322" target="_blank" class="bg-green-500 text-white font-semibold py-3 px-6 rounded-full inline-block hover:bg-green-600 transition duration-300">Chamar no WhatsApp</a>
+
+        <!-- About / Story Section -->
+        <section id="sobre" class="py-24 bg-white dark:bg-dark-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-square rounded-3xl overflow-hidden border-4 border-gray-100 dark:border-dark-700 shadow-2xl">
+                            <img src="img/perfil.jpg" alt="João Bonifácio" class="w-full h-full object-cover">
+                        </div>
+                        <!-- Floating Card -->
+                        <div class="absolute -bottom-8 -right-8 bg-white dark:bg-dark-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-dark-700 max-w-xs hidden md:block">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+                                    <i class="ph ph-check-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-bold text-gray-900 dark:text-white">Status Atual</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Disponível para Freelance</div>
+                                </div>
+                            </div>
+                            <div class="h-1 w-full bg-gray-100 dark:bg-dark-700 rounded-full overflow-hidden">
+                                <div class="h-full w-3/4 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-brand-500 font-bold tracking-wide uppercase text-sm mb-3">Minha História</h2>
+                        <h3 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">De Suporte Técnico a Desenvolvedor Full Stack</h3>
+                        <div class="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <p>
+                                Olá, sou João. Minha jornada começou no hardware, montando servidores e resolvendo problemas técnicos complexos. Essa base sólida me ensinou algo valioso: <strong>como as coisas funcionam por dentro.</strong>
+                            </p>
+                            <p>
+                                Hoje, combino essa lógica de resolução de problemas com minha paixão por criar. Seja desenvolvendo um sistema web complexo em Python/Django ou criando mundos imersivos em Unity, meu objetivo é o mesmo: entregar excelência e funcionalidade.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                            <a href="curriculo/CV - João Bonifácio.pdf" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 dark:border-dark-700 font-bold rounded-lg hover:bg-gray-50 dark:hover:bg-dark-800 transition-colors">
+                                <i class="ph ph-download-simple text-lg"></i> Baixar CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="py-24 bg-gray-50 dark:bg-[#0B1121]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Vamos construir algo incrível juntos?</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-12">
+                    Tem um projeto em mente? Estou pronto para ajudar a tirá-lo do papel.
+                </p>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="mailto:jboni2014@gmail.com" class="group flex flex-col items-center p-8 bg-white dark:bg-dark-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-dark-700 transition-all w-full md:w-64 hover:-translate-y-2">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="ph ph-envelope text-2xl"></i>
+                        </div>
+                        <span class="font-bold text-gray-900 dark:text-white mb-1">Email</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">jboni2014@gmail.com</span>
+                    </a>
+
+                    <a href="https://wa.me/5521991383322" target="_blank" class="group flex flex-col items-center p-8 bg-white dark:bg-dark-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-dark-700 transition-all w-full md:w-64 hover:-translate-y-2">
+                        <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                            <i class="ph ph-whatsapp-logo text-2xl"></i>
+                        </div>
+                        <span class="font-bold text-gray-900 dark:text-white mb-1">WhatsApp</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Conversar Agora</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/joaovbonifacio/" target="_blank" class="group flex flex-col items-center p-8 bg-white dark:bg-dark-800 rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-dark-700 transition-all w-full md:w-64 hover:-translate-y-2">
+                        <div class="w-12 h-12 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-sky-600 mb-4 group-hover:bg-sky-600 group-hover:text-white transition-colors">
+                            <i class="ph ph-linkedin-logo text-2xl"></i>
+                        </div>
+                        <span class="font-bold text-gray-900 dark:text-white mb-1">LinkedIn</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Ver Perfil</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="description-modal" class="modal">
-        <div class="modal-content text-textLight dark:text-textDark">
-            <span class="close-button">&times;</span>
-            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
-            <div id="modal-body" class="text-gray-700 dark:text-gray-300">
-                <div id="loading-spinner" class="hidden flex justify-center items-center h-48">
-                    <svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-primary dark:text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </div>
-                <p id="generated-description"></p>
+    <footer class="bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                 <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <span class="font-bold text-lg text-gray-900 dark:text-white">Boni.dev</span>
+                 </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">© 2025 João Bonifácio. Todos os direitos reservados.</p>
             </div>
-        </div>
-    </div>
-    
-    <div id="cover-letter-modal" class="modal">
-        <div class="modal-content text-textLight dark:text-textDark">
-            <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold mb-4">Rascunho de Carta de Apresentação</h3>
-            <div id="cover-letter-body" class="text-gray-700 dark:text-gray-300">
-                <div id="cover-letter-spinner" class="hidden flex justify-center items-center h-48">
-                    <svg class="animate-spin -ml-1 mr-3 h-10 w-10 text-primary dark:text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                </div>
-                <div id="cover-letter-content">
-                    <p id="generated-cover-letter" class="whitespace-pre-wrap"></p>
-                    <button id="copy-cover-letter-btn" class="bg-secondary text-white font-semibold py-2 px-4 rounded-full mt-4 hover:bg-yellow-600 transition duration-300">Copiar para a Área de Transferência</button>
-                </div>
+            <div class="flex gap-6">
+                <a href="https://github.com/JoaoVBonifacio" class="text-gray-400 hover:text-brand-500 transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/joaovbonifacio/" class="text-gray-400 hover:text-brand-500 transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
             </div>
-        </div>
-    </div>
-
-    <footer class="bg-gray-800 dark:bg-gray-950 text-white dark:text-gray-200">
-        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 João Bonifácio. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script>
+        // === LOGIC & INTERACTIVITY ===
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // 1. Theme Toggle Logic
+            const themeToggleBtns = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+            const htmlElement = document.documentElement;
+            
+            // Check localStorage or system preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+
+            themeToggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    htmlElement.classList.toggle('dark');
+                    if (htmlElement.classList.contains('dark')) {
+                        localStorage.theme = 'dark';
+                    } else {
+                        localStorage.theme = 'light';
+                    }
+                });
+            });
+
+            // 2. Mobile Menu Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.replace('ph-x', 'ph-list');
+                } else {
+                    icon.classList.replace('ph-list', 'ph-x');
+                }
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.querySelector('i').classList.replace('ph-x', 'ph-list');
+                });
+            });
+
+            // 3. Project Filtering (Tab Logic)
+            const filterBtns = document.querySelectorAll('.project-tab');
+            const projects = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Visual active state
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-brand-600', 'text-white', 'active');
+                        b.classList.add('text-gray-500', 'dark:text-gray-400');
+                    });
+                    btn.classList.remove('text-gray-500', 'dark:text-gray-400');
+                    btn.classList.add('bg-brand-600', 'text-white', 'active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projects.forEach(project => {
+                        if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+                            project.style.display = 'block';
+                            // Add fade in animation
+                            project.classList.add('animate-fade-in-up');
+                            setTimeout(() => project.classList.remove('animate-fade-in-up'), 500);
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Set initial active state styles
+            document.querySelector('.project-tab.active').classList.add('bg-brand-600', 'text-white');
+            document.querySelector('.project-tab.active').classList.remove('text-gray-500', 'dark:text-gray-400');
+        });
+    </script>
 </body>
 </html>
